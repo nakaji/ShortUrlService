@@ -9,21 +9,26 @@
 
 <div class="row">
     <div class="col-md-8">
-        @using (Html.BeginForm("Register", "ShortUrl", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
-            <div class="form-group">
-                @Html.Label("URLをここに貼り付けて", new { @class = "col-md-4 control-label" })
-                <div class="col-md-7">
-                    @Html.TextBox("url", "", new { @class = "form-control" })
+        <div class="row">
+            @using (Html.BeginForm("Register", "ShortUrls", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.Label("URLをここに貼り付けて", new { @class = "col-md-4 control-label" })
+                    <div class="col-md-7">
+                        @Html.TextBox("url", "", new { @class = "form-control" })
+                    </div>
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-default" value="登録" />
+                    </div>
                 </div>
-                <div class="col-md-1">
-                    <input type="submit" class="btn btn-default" value="登録" />
-                </div>
-            </div>
-        }
+            }
 
+        </div>
+        <div class="row">
+            <div id="result"></div>
+        </div>
     </div>
-
     <div class="col-md-4">
 
     </div>

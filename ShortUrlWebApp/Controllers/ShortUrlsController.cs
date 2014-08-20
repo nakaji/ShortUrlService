@@ -3,6 +3,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using ShortUrlWebApp.Models;
+using ShortUrlWebApp.Service;
 
 namespace ShortUrlWebApp.Controllers
 {
@@ -110,6 +111,20 @@ namespace ShortUrlWebApp.Controllers
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
+
+        // POST: ShortUrls/Register
+        // 過多ポスティング攻撃を防止するには、バインド先とする特定のプロパティを有効にしてください。
+        // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(string url)
+        {
+            var svc = new ShortUrlService();
+            var shortUrl = svc.GetShortUrl(url);
+
+            return View(shortUrl);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
