@@ -13,7 +13,7 @@ namespace ShortUrlWebApp.Tests.Service
 
             var actual = sut.GetShortUrl("http://nakaji.hatenablog.com/");
 
-            Assert.AreEqual("129f5f",actual);
+            Assert.AreEqual("http://nkz.pw/129f5f", actual);
         }
     }
 }

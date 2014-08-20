@@ -17,7 +17,10 @@ namespace ShortUrlWebApp.Service
             {
                 hash += x.ToString("x");
             });
-            return hash.Substring(0, 6);
+
+            // ToDo:データベースへ登録する
+
+            return "http://nkz.pw/"+hash.Substring(0, 6);
         }
     }
 }
