@@ -84,7 +84,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
-    <Compile Include="Service\ShortUrlService.cs" />
+    <Compile Include="Service\ShortUrlServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
