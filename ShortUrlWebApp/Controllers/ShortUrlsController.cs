@@ -113,8 +113,6 @@ namespace ShortUrlWebApp.Controllers
         }
 
         // POST: ShortUrls/Register
-        // 過多ポスティング攻撃を防止するには、バインド先とする特定のプロパティを有効にしてください。
-        // 詳細については、http://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(string url)
@@ -122,7 +120,7 @@ namespace ShortUrlWebApp.Controllers
             var svc = new ShortUrlService();
             var shortUrl = svc.GetShortUrl(url);
 
-            return View(shortUrl);
+            return PartialView(shortUrl);
         }
 
 
