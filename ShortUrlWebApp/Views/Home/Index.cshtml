@@ -10,8 +10,8 @@
 <div class="row">
     <div class="col-md-8">
         <div class="row">
-            @using (Ajax.BeginForm("Register", "ShortUrls", new { @class = "form-horizontal", role = "form" }
-                , new AjaxOptions() { HttpMethod = "POST", UpdateTargetId = "result" }))
+            @using (Ajax.BeginForm("Register", "ShortUrls", null
+                , new AjaxOptions() { UpdateTargetId = "result" }, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group">

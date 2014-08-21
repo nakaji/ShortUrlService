@@ -22,3 +22,14 @@ select,
 textarea {
     max-width: 420px;
 }
+
+.label-registerdurl {
+    color: #15c;
+    font-size: 21px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shorturl-info {
+    padding-top: 20px;
+}
