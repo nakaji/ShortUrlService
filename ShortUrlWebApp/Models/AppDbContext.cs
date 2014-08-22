@@ -6,7 +6,7 @@ namespace ShortUrlWebApp.Models
     {
         public AppDbContext() : base("DefaultConnection") { }
 
-        public DbSet<ShortUrl> ShortUrls;
+        public DbSet<ShortUrl> ShortUrls { get; set; }
     }
 
     public class ShortUrl
