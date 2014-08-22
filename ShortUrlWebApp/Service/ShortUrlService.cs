@@ -6,7 +6,7 @@ namespace ShortUrlWebApp.Service
 {
     public class ShortUrlService
     {
-        public object GetShortUrl(string url)
+        public string GetShortUrl(string url)
         {
             var md5 = new MD5CryptoServiceProvider();
             md5.Initialize();
@@ -20,7 +20,7 @@ namespace ShortUrlWebApp.Service
 
             // ToDo:データベースへ登録する
 
-            return "http://nkz.pw/"+hash.Substring(0, 6);
+            return "http://nkd.jp/"+hash.Substring(0, 6);
         }
     }
 }
