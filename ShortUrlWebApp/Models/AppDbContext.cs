@@ -13,7 +13,8 @@ namespace ShortUrlWebApp.Models
     {
         public int Id { get; set; }
         public string Original { get; set; }
-        public string User { get; set; }
+        public string Short { get; set; }
         public string Hash { get; set; }
+        public string User { get; set; }
     }
 }
