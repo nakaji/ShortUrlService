@@ -11,7 +11,7 @@ namespace ShortUrlWebApp.Tests.Service
         {
             var sut = new ShortUrlService();
 
-            var actual = sut.GetShortUrl("http://nakaji.hatenablog.com/");
+            var actual = sut.RegisterUrl("http://nakaji.hatenablog.com/");
 
             Assert.AreEqual("http://nkz.pw/129f5f", actual);
         }

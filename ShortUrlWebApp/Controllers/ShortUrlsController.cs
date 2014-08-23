@@ -119,7 +119,7 @@ namespace ShortUrlWebApp.Controllers
         public async Task<ActionResult> Register(string url)
         {
             var svc = new ShortUrlService();
-            var shortUrl = svc.GetShortUrl(url);
+            var shortUrl = svc.RegisterUrl(url);
 
             return PartialView(shortUrl);
         }
