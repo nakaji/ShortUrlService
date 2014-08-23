@@ -11,7 +11,7 @@ namespace ShortUrlWebApp.Service
 {
     public class ShortUrlService
     {
-        public  ShortUrl GetShortUrl(string url)
+        public ShortUrl GetShortUrl(string url)
         {
             var db = new AppDbContext();
             // 同じURLが登録されていればそれを返す

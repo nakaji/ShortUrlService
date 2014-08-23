@@ -120,7 +120,7 @@ namespace ShortUrlWebApp.Controllers
             var svc = new ShortUrlService();
             var shortUrl = svc.GetShortUrl(url);
 
-            return PartialView(shortUrl.Short);
+            return PartialView(shortUrl);
         }
 
 
