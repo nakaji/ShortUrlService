@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -121,6 +122,15 @@ namespace ShortUrlWebApp.Controllers
             var shortUrl = svc.GetShortUrl(url);
 
             return PartialView(shortUrl);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> RedirectShortUrl(string hash)
+        {
+            var svc = new ShortUrlService();
+            var shortUrl = svc.GetShortUrlByHash(hash);
+
+            return new RedirectResult(shortUrl.Original);
         }
 
 

@@ -46,5 +46,12 @@ namespace ShortUrlWebApp.Service
 
             return item;
         }
+
+        public ShortUrl GetShortUrlByHash(string hash)
+        {
+            var db = new AppDbContext();
+            var item = db.ShortUrls.FirstOrDefault(x => x.Hash == hash);
+            return item;
+        }
     }
 }
