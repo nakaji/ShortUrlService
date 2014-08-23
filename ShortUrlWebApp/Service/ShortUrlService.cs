@@ -38,7 +38,7 @@ namespace ShortUrlWebApp.Service
             {
                 Original = url,
                 Short = shortedUrl,
-                Hash = hash
+                Hash = hash.Substring(0, 6)
             };
             db.ShortUrls.Add(item);
             db.SaveChanges();
