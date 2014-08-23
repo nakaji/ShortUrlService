@@ -235,11 +235,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ShortUrls\Create.cshtml" />
     <Content Include="Views\ShortUrls\Delete.cshtml" />
-    <Content Include="Views\ShortUrls\Details.cshtml" />
-    <Content Include="Views\ShortUrls\Edit.cshtml" />
-    <Content Include="Views\ShortUrls\Index.cshtml" />
+    <Content Include="Views\ShortUrls\List.cshtml" />
     <Content Include="Views\ShortUrls\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -20,24 +20,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.User)
+            @Html.DisplayNameFor(model => model.Short)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.User)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hash)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hash)
+            @Html.DisplayFor(model => model.Short)
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
