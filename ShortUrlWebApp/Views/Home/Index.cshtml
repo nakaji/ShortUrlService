@@ -11,7 +11,7 @@
     <div class="col-md-8">
         <div class="row">
             @using (Ajax.BeginForm("Register", "ShortUrls", null
-                , new AjaxOptions() { UpdateTargetId = "result" }, new { @class = "form-horizontal", role = "form" }))
+                , new AjaxOptions() { UpdateTargetId = "result", LoadingElementId = "loading" }, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group">
@@ -34,3 +34,19 @@
 
     </div>
 </div>
+<div id="loading" class="loading-icon">
+    <img src="~/Images/ajax-loader.gif" />
+</div>
+
+@section scripts
+{
+    <script>
+        jQuery.fn.center = function () {
+            this.css("position", "absolute");
+            this.css("top", ($(window).height() - this.height()) / 2 + $(window).scrollTop() + "px");
+            this.css("left", ($(window).width() - this.width()) / 2 + $(window).scrollLeft() + "px");
+            return this;
+        };
+        $("#loading").center();
+    </script>
+}
