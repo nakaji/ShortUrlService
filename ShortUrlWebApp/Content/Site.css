@@ -23,11 +23,12 @@ textarea {
     max-width: 420px;
 }
 
-.label-registerdurl {
+.registerdurl {
     color: #15c;
     font-size: 21px;
     font-weight: bold;
     text-align: center;
+    border: none;
 }
 
 .shorturl-info {
