@@ -44,8 +44,14 @@ namespace ShortUrlWebApp.Service
 
         public ShortUrl GetShortUrlByHash(string hash)
         {
-            var item = _db.ShortUrls.FirstOrDefault(x => x.Hash == hash);
-            return item;
+            var shortUrl = _db.ShortUrls.FirstOrDefault(x => x.Hash == hash);
+            if (shortUrl != null)
+            {
+                shortUrl.Counter++;
+                _db.Entry(shortUrl).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+            return shortUrl;
         }
     }
 }

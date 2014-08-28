@@ -82,5 +82,18 @@ namespace ShortUrlWebApp.Tests.Service
 
             Assert.IsNull(actual);
         }
+
+        [TestMethod]
+        public void ハッシュからShortUrlオブジェクトを取得した際にカウンタをインクリメントする()
+        {
+            var hash = "129f5f";
+
+            var db = new AppDbContext();
+            var beforeCounter = db.ShortUrls.FirstOrDefault(x => x.Hash == hash).Counter;
+
+            var actual = sut.GetShortUrlByHash(hash);
+
+            Assert.AreEqual(beforeCounter + 1, actual.Counter);
+        }
     }
 }
