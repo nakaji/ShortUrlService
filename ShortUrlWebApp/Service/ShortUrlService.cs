@@ -11,11 +11,12 @@ namespace ShortUrlWebApp.Service
 {
     public class ShortUrlService
     {
+        private AppDbContext _db = new AppDbContext();
+
         public ShortUrl RegisterUrl(string url)
         {
-            var db = new AppDbContext();
             // 同じURLが登録されていればそれを返す
-            var existsItem =  db.ShortUrls.FirstOrDefault(x => x.Original == url);
+            var existsItem =  _db.ShortUrls.FirstOrDefault(x => x.Original == url);
             if (existsItem != null)
             {
                 return existsItem;
@@ -40,8 +41,8 @@ namespace ShortUrlWebApp.Service
                 Short = shortedUrl,
                 Hash = hash.Substring(0, 6)
             };
-            db.ShortUrls.Add(item);
-            db.SaveChanges();
+            _db.ShortUrls.Add(item);
+            _db.SaveChanges();
 
 
             return item;
@@ -49,8 +50,7 @@ namespace ShortUrlWebApp.Service
 
         public ShortUrl GetShortUrlByHash(string hash)
         {
-            var db = new AppDbContext();
-            var item = db.ShortUrls.FirstOrDefault(x => x.Hash == hash);
+            var item = _db.ShortUrls.FirstOrDefault(x => x.Hash == hash);
             return item;
         }
     }
