@@ -29,17 +29,15 @@ namespace ShortUrlWebApp.Service
                 // ハッシュが同じになる場合は乱数を加えて取り直し
                 hash = HashGenerator.Generate(url + (new Random()).Next());
             }
-            var shortedUrl = "http://nkd.jp/" + hash;
 
             var item = new ShortUrl()
             {
                 Original = url,
-                Short = shortedUrl,
+                Short = "http://nkd.jp/" + hash,
                 Hash = hash
             };
             _db.ShortUrls.Add(item);
             _db.SaveChanges();
-
 
             return item;
         }
