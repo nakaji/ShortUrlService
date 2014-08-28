@@ -22,24 +22,14 @@ namespace ShortUrlWebApp.Service
                 return existsItem;
             }
 
-            var md5 = new MD5CryptoServiceProvider();
-            md5.Initialize();
-            var buf = Encoding.UTF8.GetBytes(url);
-            var hashArray = md5.ComputeHash(buf);
-            string hash = "";
-            hashArray.ForEach(x =>
-            {
-                hash += x.ToString("x");
-            });
-            var shortedUrl = "http://nkd.jp/" + hash.Substring(0, 6);
+            string hash = HashGenerator.Generate(url);
+            var shortedUrl = "http://nkd.jp/" + hash;
             
-            // ToDo:データベースへ登録する
-
             var item = new ShortUrl()
             {
                 Original = url,
                 Short = shortedUrl,
-                Hash = hash.Substring(0, 6)
+                Hash = hash
             };
             _db.ShortUrls.Add(item);
             _db.SaveChanges();

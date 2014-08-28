@@ -171,6 +171,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Controllers\ShortUrlsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\HashGenerator.cs" />
     <Compile Include="Service\ShortUrlService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
