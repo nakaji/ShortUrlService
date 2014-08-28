@@ -8,15 +8,15 @@
 </div>
 
 <div class="row container">
-    <div class="col-md-8">
-        <div class="row">
+    <div class="col-md-offset-2 col-md-7">
+        <div class="row container">
             @using (Ajax.BeginForm("Register", "ShortUrls", null
                 , new AjaxOptions() { UpdateTargetId = "result", LoadingElementId = "loading" }, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <div class="form-group">
-                    @Html.Label("URLをここに貼り付けて", new { @class = "col-md-4 control-label" })
-                    <div class="col-md-7">
+                    @Html.Label("URL", new { @class = "col-md-1 control-label" })
+                    <div class="col-md-8">
                         @Html.TextBox("url", "", new { @class = "form-control" })
                     </div>
                     <div class="col-md-1">
