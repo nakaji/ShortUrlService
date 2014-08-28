@@ -16,5 +16,6 @@ namespace ShortUrlWebApp.Models
         public string Short { get; set; }
         public string Hash { get; set; }
         public string User { get; set; }
+        public int Counter { get; set; }
     }
 }
