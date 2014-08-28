@@ -5,14 +5,15 @@ namespace ShortUrlWebApp.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ShortUrlWebApp.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ShortUrlWebApp.Models.AppDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            ContextKey = "ShortUrlWebApp.Models.AppDbContext";
         }
 
-        protected override void Seed(ShortUrlWebApp.Models.ApplicationDbContext context)
+        protected override void Seed(ShortUrlWebApp.Models.AppDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
