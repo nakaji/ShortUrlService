@@ -33,9 +33,9 @@ namespace ShortUrlWebApp.Tests.Service
         [TestMethod]
         public void Urlを受け取るとShortUrlオブジェクトを返す()
         {
-            var actual = sut.RegisterUrl("http://nakaji.hatenablog.com/");
+            var actual = sut.RegisterUrl("http://nakaji.hatenablog.com/1");
 
-            Assert.AreEqual("http://nkd.jp/129f5f", actual.Short);
+            Assert.AreEqual("http://nkd.jp/224ead", actual.Short);
         }
 
         [TestMethod]
@@ -48,6 +48,24 @@ namespace ShortUrlWebApp.Tests.Service
             Assert.AreEqual("http://nkd.jp/129f5f", actual.Short);
             Assert.AreEqual(1, db.ShortUrls.Count());
         }
+
+        [TestMethod]
+        public void URLが異なりハッシュが同じになる場合はハッシュを取り直す()
+        {
+            var db = new AppDbContext();
+            db.ShortUrls.Add(new ShortUrl()
+            {
+                Original = "http://nakaji.hatenablog.com/xxxxx",
+                Short = "http://nkd.jp/224ead",
+                Hash = "224ead"
+            });
+            db.SaveChanges();
+
+            var actual = sut.RegisterUrl("http://nakaji.hatenablog.com/1");
+
+            Assert.AreNotEqual("http://nkd.jp/224ead", actual.Short);
+        }
+
 
         [TestMethod]
         public void ハッシュからShortUrlオブジェクトを取得する()

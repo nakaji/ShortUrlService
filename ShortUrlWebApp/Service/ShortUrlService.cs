@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Policy;
@@ -16,15 +17,20 @@ namespace ShortUrlWebApp.Service
         public ShortUrl RegisterUrl(string url)
         {
             // 同じURLが登録されていればそれを返す
-            var existsItem =  _db.ShortUrls.FirstOrDefault(x => x.Original == url);
+            var existsItem = _db.ShortUrls.FirstOrDefault(x => x.Original == url);
             if (existsItem != null)
             {
                 return existsItem;
             }
 
             string hash = HashGenerator.Generate(url);
+            while (GetShortUrlByHash(hash) != null)
+            {
+                // ハッシュが同じになる場合は乱数を加えて取り直し
+                hash = HashGenerator.Generate(url + (new Random()).Next());
+            }
             var shortedUrl = "http://nkd.jp/" + hash;
-            
+
             var item = new ShortUrl()
             {
                 Original = url,
