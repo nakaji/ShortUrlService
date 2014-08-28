@@ -48,5 +48,21 @@ namespace ShortUrlWebApp.Tests.Service
             Assert.AreEqual("http://nkd.jp/129f5f", actual.Short);
             Assert.AreEqual(1, db.ShortUrls.Count());
         }
+
+        [TestMethod]
+        public void ハッシュからShortUrlオブジェクトを取得する()
+        {
+            var actual = sut.GetShortUrlByHash("129f5f");
+
+            Assert.AreEqual("http://nakaji.hatenablog.com/", actual.Original);
+        }
+
+        [TestMethod]
+        public void 該当するハッシュのShortUrlオブジェクトが無い場合はnull()
+        {
+            var actual = sut.GetShortUrlByHash("999999");
+
+            Assert.IsNull(actual);
+        }
     }
 }
