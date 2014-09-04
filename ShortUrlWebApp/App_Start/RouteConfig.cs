@@ -16,7 +16,7 @@ namespace ShortUrlWebApp
             routes.MapRoute(
                 name: "Redirect",
                 url: "{hash}",
-                defaults: new { controller = "ShortUrls", action = "RedirectShortUrl"}
+                defaults: new { controller = "ShortUrls", action = "RedirectShortUrl" }
             );
 
             routes.MapRoute(
