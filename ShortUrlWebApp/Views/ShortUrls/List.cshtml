@@ -1,24 +1,21 @@
 ﻿@model IEnumerable<ShortUrlWebApp.Models.ShortUrl>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List";
 }
 
-<h2>Index</h2>
+<h2>List</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Original)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.User)
+            @Html.DisplayNameFor(model => model.Short)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Hash)
+            @Html.DisplayNameFor(model => model.Counter)
         </th>
         <th></th>
     </tr>
@@ -26,17 +23,17 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Original)
+            <a href="@item.Original" target="_blank">
+                @Html.DisplayFor(modelItem => item.Original)
+            </a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.User)
+            @Html.DisplayFor(modelItem => item.Short)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Hash)
+            @Html.DisplayFor(modelItem => item.Counter)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
